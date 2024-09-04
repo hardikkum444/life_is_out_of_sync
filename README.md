@@ -13,7 +13,7 @@ import asyncio
 
 async def fetch_data():
     async with aiohttp.ClientSession() as session:
-        async with session.get('https://api.example.com/data') as response:
+        async with session.get('https://www.somerandomwebsite.com/data') as response:
             # waiting for the response
             data = await response.json()
             return data
@@ -23,6 +23,41 @@ if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     data = loop.run_until_complete(fetch_data())
     print(data)
+```
+
+### Taking advantage of the async function functionality
+
+```python 
+
+import aiohttp
+import asyncio
+
+async def fetch_data(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            data = await response.json()
+            return data
+
+async def main():
+    urls = [
+        'https://api.example.com/data1',
+        'https://api.example.com/data2',
+        'https://api.example.com/data3'
+    ]
+    
+    # Create a list of tasks for concurrent execution
+    tasks = [fetch_data(url) for url in urls]
+    
+    # Await the completion of all tasks
+    results = await asyncio.gather(*tasks)
+    return results
+
+# Running the async function
+if __name__ == "__main__":
+    loop = asyncio.get_event_loop()
+    data = loop.run_until_complete(main())
+    print(data)
+
 ```
 
 
