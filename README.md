@@ -3,8 +3,8 @@
 
 An async function defined using the async keyword (ofcourse), is a function in programming which helps to perform asynchronous programming (ofcourse). It is defined using the async keyword before the function definition. (ofcourse). Async functions in general return a promise which ensures the completion (which could be success or faliure) of the operation.
 
-### pip install asyncio
-### pip install aiohttp
+### ``` pip install asyncio ```
+### ``` pip install aiohttp ```
 
 ```python 
 
@@ -40,9 +40,9 @@ async def fetch_data(url):
 
 async def main():
     urls = [
-        'https://api.example.com/data1',
-        'https://api.example.com/data2',
-        'https://api.example.com/data3'
+        'https://www.somerandomwebsite.com/data1',
+        'https://www.somerandomwebsite.com/data2',
+        'https://www.somerandomwebsite.com/data3'
     ]
     
     # Create a list of tasks for concurrent execution
