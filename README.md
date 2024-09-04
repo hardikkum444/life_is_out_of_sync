@@ -3,19 +3,22 @@
 
 An async function defined using the async keyword (ofcourse), is a function in programming which helps to perform asynchronous programming (ofcourse). It is defined using the async keyword before the function definition. (ofcourse). Async functions in general return a promise which ensures the completion (which could be success or faliure) of the operation.
 
-## pip install asyncio
+### pip install asyncio
+### pip install aiohttp
 
 ```python 
+
 import aiohttp
 import asyncio
 
 async def fetch_data():
     async with aiohttp.ClientSession() as session:
         async with session.get('https://api.example.com/data') as response:
+            # waiting for the response
             data = await response.json()
             return data
 
-# To run the async function
+# Running the async function
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     data = loop.run_until_complete(fetch_data())
