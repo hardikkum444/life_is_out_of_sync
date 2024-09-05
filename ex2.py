@@ -15,11 +15,17 @@ async def main():
     task2 = asyncio.create_task(fetching_data(2,2))
     task3 = asyncio.create_task(fetching_data(3,2))
 
-    result1 = await task1
-    result2 = await task2
-    result3 = await task3
+    # result1 = await task1
+    # result2 = await task2
+    # result3 = await task3
 
-    print(result1, result2, result3)
+    results = [await task1, await task2]
+
+    for result in results:
+        print(result)
+
+
+    # print(result1, result2, result3)
 
 if __name__ == "__main__":
     asyncio.run(main())
