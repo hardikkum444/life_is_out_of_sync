@@ -10,7 +10,7 @@ async def fetching_data(no, delay):
 async def main():
 
     # creating coroutines:
-
+    # task is a coroutine object:
     task1 = asyncio.create_task(fetching_data(1,2))
     task2 = asyncio.create_task(fetching_data(2,2))
     task3 = asyncio.create_task(fetching_data(3,2))
